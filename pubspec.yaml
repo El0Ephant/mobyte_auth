@@ -1,0 +1,58 @@
+name: mobyte_auth
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.0-272.0.dev <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_bloc: ^8.0.1
+  sizer: ^2.0.15
+  flutter_hooks: ^0.18.5+1
+
+  firebase_core: ^1.20.0
+  firebase_auth: ^3.5.0
+  cloud_firestore: ^3.4.2
+  firebase_admin: ^0.2.0
+
+  google_sign_in: ^5.4.0
+  pin_code_fields: ^7.4.0
+  flutter_native_splash: ^2.2.6
+  flutter_svg: ^1.1.1+1
+  flutter_email_sender: ^5.1.0
+  another_flushbar: ^1.10.29
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+     - assets/
+
+  fonts:
+     - family: Nunito
+       fonts:
+         - asset: fonts/Nunito/Nunito-Regular.ttf
+           weight: 400
+         - asset: fonts/Nunito/Nunito-SemiBold.ttf
+           weight: 600
+         - asset: fonts/Nunito/Nunito-Bold.ttf
+           weight: 700
+
+     - family: Poppins
+       fonts:
+         - asset: fonts/Poppins/Poppins-Regular.ttf
+           weight: 400
+

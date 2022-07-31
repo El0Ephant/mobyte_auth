@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "343635776170",
+    "project_id": "mobyte-auth",
+    "storage_bucket": "mobyte-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343635776170:android:b213cf26293b5612f176d3",
+        "android_client_info": {
+          "package_name": "com.internship.mobyte_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343635776170-ci654j5kb38sva26lak7sc8fa0o1epch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.internship.mobyte_auth",
+            "certificate_hash": "d7edd84dfd8133c81f63c6b82003258f47a824dd"
+          }
+        },
+        {
+          "client_id": "343635776170-f0vr7tqbu2jkje5f47bnved6uc03m3hm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-caiz4p8Hj0Cm2ycH30X8qwp2cxJsqAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343635776170-f0vr7tqbu2jkje5f47bnved6uc03m3hm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
