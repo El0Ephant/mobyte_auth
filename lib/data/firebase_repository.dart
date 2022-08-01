@@ -93,16 +93,16 @@ class FirebaseRepository extends AuthRepository {
         var data = await _storeInstance.collection('users').doc(login).get();
         login = await data.get("email");
 
-        //await _instance.sendPasswordResetEmail(email: login);
-        var random = Random();
+        await _instance.sendPasswordResetEmail(email: login);
+        /*var random = Random();
         final Email email = Email(
           body: 'Your reset code is ${random.nextInt(9)*1000+random.nextInt(9)*100+random.nextInt(9)*10+random.nextInt(9)}',
           subject: 'Mobyte auth password reset',
           recipients: [login],
           isHTML: false,
-        );
+        )*/
 
-        await FlutterEmailSender.send(email);
+        //await FlutterEmailSender.send(email);
       }
       return "OK";
     }
