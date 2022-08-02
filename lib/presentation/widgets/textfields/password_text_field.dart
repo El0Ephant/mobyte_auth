@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:mobyte_auth/presentation/auth_theme.dart';
 import 'package:mobyte_auth/presentation/widgets/textfields/text_field_design_mixin.dart';
 
 class PasswordTextField extends StatefulWidget with TextFieldDesignMixin {

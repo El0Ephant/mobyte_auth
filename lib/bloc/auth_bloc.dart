@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -11,6 +9,7 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this.repository) : super(const AuthInitial()) {
     on<AuthEvent>((event, emit) async {
+      print(event);
       if (event is ErrorEvent) {
         emit (AuthFail(event.message));
       }
@@ -47,6 +46,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       else if (event is LogOutEvent) {
         emit(const AuthLoading());
         await repository.logOut();
+        emit(const AuthSuccess());
+      }
+
+      else if (event is DummyEvent) {
+        emit(const AuthLoading());
         emit(const AuthSuccess());
       }
     });

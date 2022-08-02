@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 abstract class AuthRepository {
   AuthRepository();
 
@@ -13,10 +11,5 @@ abstract class AuthRepository {
   String get userEmail;
 
   String get username;
-
-  /*Future<String> sendCode({required String code});
-  Future<String> sendNewPassword({required String password});
-
-  ???*/
 
 }

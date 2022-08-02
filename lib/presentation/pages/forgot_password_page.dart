@@ -1,6 +1,6 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:mobyte_auth/presentation/pages/verification_page.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,8 +31,8 @@ class ForgotPasswordPage extends HookWidget {
     final loginController = useTextEditingController();
 
     return PageWithLogic(
-      onSuccess: (){},
-      onPop: () async {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>LogInPage()), (route) => false); return false;},
+      onSuccess:  () async {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>const VerificationPage(),), (route) => false);},
+      onPop: () async {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>const LogInPage()), (route) => false); return false;},
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

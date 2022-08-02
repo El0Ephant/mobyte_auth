@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:sizer/sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_admin/firebase_admin.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:mobyte_auth/bloc/auth_bloc.dart';
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
               return MaterialApp(
                 title: 'Mobyte auth',
                 theme: AuthTheme.theme,
-                home: LogInPage(),
+                home: const LogInPage(),
               );
             }
         ),

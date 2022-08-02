@@ -35,3 +35,7 @@ class GoogleLogInEvent extends AuthEvent {
 class LogOutEvent extends AuthEvent {
   const LogOutEvent();
 }
+
+class DummyEvent extends AuthEvent {
+  const DummyEvent();
+}

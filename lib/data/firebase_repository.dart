@@ -1,9 +1,6 @@
-import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_admin/firebase_admin.dart' hide FirebaseException;
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:mobyte_auth/data/auth_repository.dart';
@@ -13,7 +10,6 @@ class FirebaseRepository extends AuthRepository {
   final _instance = FirebaseAuth.instance;
   final _storeInstance = FirebaseFirestore.instance;
   final _googleSignIn = GoogleSignIn();
-  final _adminInstance = FirebaseAdmin.instance;
 
   String _email = '';
   String _username = '';
@@ -25,7 +21,7 @@ class FirebaseRepository extends AuthRepository {
         if (!emailRegex.hasMatch(login)) {
           var data = await _storeInstance.collection('users').doc(login).get();
           _username = login;
-          login = await data.get("email");
+          login = await data.data()?["email"] ?? "";
           _email = login;
         }
         else {
@@ -34,11 +30,11 @@ class FirebaseRepository extends AuthRepository {
           _username = await data.get("username");
         }
       }
-      on FirebaseException catch (e) {
-        return e.message ?? "Unnamed error";
+      on FirebaseStorageError catch (e) {
+        return e.message;
       }
 
-
+      if (login == "") return "No such user";
 
     try {
       await _instance.signInWithEmailAndPassword(
@@ -91,19 +87,15 @@ class FirebaseRepository extends AuthRepository {
       }
       else {
         var data = await _storeInstance.collection('users').doc(login).get();
-        login = await data.get("email");
+        login = await data.data()?["email"] ?? "";
+
+        if (login == "") {
+          return "No such user";
+        }
 
         await _instance.sendPasswordResetEmail(email: login);
-        /*var random = Random();
-        final Email email = Email(
-          body: 'Your reset code is ${random.nextInt(9)*1000+random.nextInt(9)*100+random.nextInt(9)*10+random.nextInt(9)}',
-          subject: 'Mobyte auth password reset',
-          recipients: [login],
-          isHTML: false,
-        )*/
-
-        //await FlutterEmailSender.send(email);
       }
+
       return "OK";
     }
     on FirebaseAuthException catch(e) {
@@ -142,8 +134,5 @@ class FirebaseRepository extends AuthRepository {
 
   @override
   String get username => _username;
-
-
-
 
 }

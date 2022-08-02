@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWithLogic(
       onPop: () async {return false;},
-      onSuccess: (){Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>LogInPage()), (route) => false);},
+      onSuccess: (){Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>const LogInPage()), (route) => false);},
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

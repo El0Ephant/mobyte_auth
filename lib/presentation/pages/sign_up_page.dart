@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mobyte_auth/presentation/pages/page_with_logic.dart';
@@ -15,7 +14,7 @@ import 'package:mobyte_auth/presentation/pages/homepage.dart';
 import 'log_in_page.dart';
 
 class SignUpPage extends HookWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
 
   void _signUp(BuildContext context, {required String username, required String email, required String password}) {
@@ -48,8 +47,8 @@ class SignUpPage extends HookWidget {
 
 
     return PageWithLogic(
-      onPop: () async {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>LogInPage()), (route) => false); return false;},
-      onSuccess: (){Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>HomePage()),(_)=>false);},
+      onPop: () async {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>const LogInPage()), (route) => false); return false;},
+      onSuccess: (){Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>const HomePage()),(_)=>false);},
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
